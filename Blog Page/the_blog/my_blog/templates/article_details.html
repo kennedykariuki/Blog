@@ -1,4 +1,18 @@
-<h4>{{ post.title }}</h4>
-{{ post.author.username }}
-<br>
-{{ post.body }}
+{% extends 'base.html' %}
+
+{% block title %}
+    Article page | {{ post.title }}
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h4>{{ post.title }}</h4>
+        {{ post.author.username }}
+        <br>
+        {{ post.body }}
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+
+{% endblock %}
