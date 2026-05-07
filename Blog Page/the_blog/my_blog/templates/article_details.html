@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Article page | {{ post.title }}
+    Article page | {{ article.title }}
 {% endblock %}
 
 {% block content %}
 
     <div>
-        <h4>{{ post.title }}</h4>
-        {{ post.author.username }}
+        <h4>{{ article_details.title }}</h4>
+        {{ article_details.author.username }}
         <br>
-        {{ post.body }}
+        {{ article_details.body }}
+        <br>
+        <br>
+        <span>
+            <small>Created: {{ article_details.publication_date }}</small>
+        </span>
     </div>
 
     <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>

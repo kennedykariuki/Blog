@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Blog Post
+{% endblock %}
+
+{% block content %}
+
+    <h3>Delete Blog Post</h3>
+    <h7>Delete {{ article.title }}</h7>
+    <div class="form-group">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-secondary" type="submit">Delete Blog</button>
+        </form>
+    </div>
+
+{% endblock %}

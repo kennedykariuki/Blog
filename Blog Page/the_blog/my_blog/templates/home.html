@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Post</h3>
+<div class="container">
+    <h3>Post</h3>
 
-<ul>
-        {% for post in object_list %}
+    <ul>
+        {% for article in articles %}
         <li>
-            <a href="{% url 'article_details' post.pk %}">{{ post.title }}</a> - {{ post.author.username }}
+            <a href="{% url 'article_details' article.pk %}">{{ article.title }}</a> - {{ article.author.username }} - 
+            {% if user.is_authenticated %}
+                <small>
+                    <a href="{% url 'update_post' article.pk%}">Edit</a>
+                    <a href="{% url 'delete_post' article.pk%}">Delete Post!?</a>
+                </small>
+            {% endif %}
             <br>
-            {{ post.body }}
+            {{ article.body }}
         </li>
         {% endfor %}
-</ul>
+    </ul>
+
+</div>
 {% endblock %}

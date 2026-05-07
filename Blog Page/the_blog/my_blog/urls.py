@@ -1,9 +1,10 @@
-# from my_blog import views
-from my_blog.views import HomeView, ArticleDetailsView
 from django.urls import path
+from my_blog import views
 
 urlpatterns = [
-    # path("", views.index, name="index")
-    path("", HomeView.as_view(), name="home"),
-    path("article/<int:pk>", ArticleDetailsView.as_view(), name="article_details")
+    path("", views.home , name= "home"),
+    path("article_details/<int:pk>", views.article_details, name="article_details"),
+    path("add_post/", views.add_post, name = "add_post"),
+    path("update_post/<int:pk>", views.update_post, name="update_post"),
+    path("delete_post/<int:pk>", views.delete_post, name="delete_post")
 ]
