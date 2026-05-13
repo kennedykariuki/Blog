@@ -7,11 +7,13 @@ class PostForm(forms.ModelForm):
         fields = [
             "title",
             "author",
+            "category",
             "body"
         ]
         widgets = {
             'title': forms.TextInput(attrs = { 'class' : 'form-control' , 'placeholder':'Enter your title'}),
             'author': forms.Select(attrs = { 'class' : 'form-control' }),
+            'category': forms.Select(attrs = { 'class' : 'form-control' , 'placeholder':'Please choose a category' }),
             'body': forms.Textarea(attrs = { 'class' : 'form-control' }),
         }
 
@@ -24,5 +26,6 @@ class UpdateForm(forms.ModelForm):
         ]
         widgets = {
             'title': forms.TextInput(attrs = { 'class' : 'form-control' , 'placeholder':'Enter your title'}),
+            'category': forms.Select(attrs = { 'class' : 'form-control' , 'placeholder':'Please choose a category' }),
             'body': forms.Textarea(attrs = { 'class' : 'form-control' }),
         }

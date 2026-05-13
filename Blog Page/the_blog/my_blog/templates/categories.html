@@ -2,13 +2,12 @@
 
 {% block content %}
 <div class="container">
-    <h3>Post</h3>
-
+    <h3>{{ cats }} Category</h3>
+    {% if category_posts %}
     <ul>
-        {% for article in articles %}
+    {% for article in category_posts %}
         <li>
-            <a href="{% url 'article_details' article.pk %}">{{ article.title }}</a> - 
-            <a href="{% url 'category' article.category %}">{{ article.category }}</a> -
+            <a href="{% url 'article_details' article.pk %}">{{ article.title }}</a> -
             {% for member in members %}
                 <span> By {{ member.first_name }} {{ member.last_name }}</span>
             {% endfor %}
@@ -20,12 +19,12 @@
             {% endif %}
             <br>
             {{ article.body|slice:":200" }}
-            <br>
             <small>Written by: {{ article.author.username }}</small>
         </li>
-        {% endfor %}
+    {% endfor %}
     </ul>
-    
-
+    {% else %}
+        <h5>This is template DOES NOT EXIST</h5>
+    {% endif %}
 </div>
 {% endblock %}
